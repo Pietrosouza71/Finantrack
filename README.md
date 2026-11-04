@@ -6,7 +6,11 @@
 
 ## Demonstração
 
-Abra `index.html` no navegador para navegar pela apresentação, painel, movimentações e relatórios. Na página inicial, use **Explorar demonstração** para carregar registros fictícios e visualizar os gráficos preenchidos.
+Acesse o [site publicado no GitHub Pages](https://pietrosouza71.github.io/Finantrack/) ou abra `index.html` no navegador para navegar pela apresentação, painel, movimentações e relatórios. Na página inicial, use **Explorar demonstração** para carregar registros fictícios e visualizar os gráficos preenchidos.
+
+## Captura de tela
+
+![Página inicial do FINANTRACK, com o menu, a apresentação e os cards de funcionalidades](docs/images/homepage.png)
 
 ### Telas do projeto
 
@@ -50,6 +54,9 @@ FinanTrack/
 ├── styles.css   # Identidade visual, componentes e responsividade
 ├── app.js       # Estado, LocalStorage, cálculos, filtros e gráficos
 ├── README.md    # Documentação do projeto
+├── docs/
+│   └── images/
+│       └── homepage.png # Captura da página inicial publicada
 └── .gitignore   # Arquivos locais ignorados pelo Git
 ```
 
@@ -58,14 +65,6 @@ FinanTrack/
 Cada movimentação contém `id`, `type`, `amount`, `category`, `description` e `date`. O aplicativo guarda uma lista desses objetos na chave `finantrack-transactions-v1` do LocalStorage. Assim, os registros permanecem disponíveis no mesmo navegador e dispositivo.
 
 O saldo e a economia do período são calculados como **soma das receitas − soma das despesas**. Os filtros selecionam os registros antes dos totais e gráficos serem atualizados. Os gráficos são recriados a partir dos dados atuais quando a lista ou o período muda.
-
-## Imagens demonstrativas
-
-A página inicial inclui uma prévia ilustrativa do painel. Para adicionar capturas reais ao repositório, tire screenshots das telas no navegador e salve-as em `docs/images/`; elas podem ser exibidas aqui com Markdown, por exemplo:
-
-```md
-![Painel financeiro do FinanTrack](docs/images/painel.png)
-```
 
 ## Publicar no GitHub
 
