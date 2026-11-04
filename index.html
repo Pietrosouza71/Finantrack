@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d12">
+  <meta name="description" content="FinanTrack: acompanhe suas receitas, despesas e metas em um só lugar.">
+  <title>FINANTRACK — Controle financeiro pessoal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#inicio" aria-label="FinanTrack — início">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M7 23.5V8.5h11.5M7 16h10M20 22l4-4 3 2.5 5-6" /></svg>
+        </span>
+        <span class="brand-name">FINAN<span>TRACK</span></span>
+      </a>
+      <div class="sidebar-caption">MENU PRINCIPAL</div>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button class="nav-link active" data-page="inicio"><span class="nav-icon">⌂</span>Início</button>
+        <button class="nav-link" data-page="painel"><span class="nav-icon">▦</span>Painel</button>
+        <button class="nav-link" data-page="movimentacoes"><span class="nav-icon">↕</span>Movimentações</button>
+        <button class="nav-link" data-page="relatorios"><span class="nav-icon">▤</span>Relatórios</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <span class="tip-icon">✳</span>
+          <strong>Pequenos passos,<br>grandes conquistas.</strong>
+          <p>Seu futuro financeiro começa com uma boa escolha hoje.</p>
+        </div>
+        <div class="profile">
+          <div class="avatar">FT</div>
+          <div><strong>Meu espaço</strong><small>Controle pessoal</small></div>
+          <span class="profile-dot" aria-label="Ativo"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+        <div class="breadcrumb"><span>FinanTrack</span><span class="crumb-separator">/</span><strong id="breadcrumb-current">Início</strong></div>
+        <div class="topbar-right">
+          <span class="today-label" id="today-label"></span>
+          <span class="secure-label"><span></span> Dados salvos neste dispositivo</span>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="page-view active" id="page-inicio">
+          <div class="hero">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="eyebrow-line"></span> SUA VIDA FINANCEIRA, MAIS LEVE</div>
+              <h1>Seu dinheiro merece<br>um <span>bom plano.</span></h1>
+              <p class="hero-lede">Tenha controle do seu dinheiro, tome decisões melhores.</p>
+              <p class="hero-description">Organize receitas e despesas, entenda para onde seu dinheiro vai e acompanhe sua evolução com clareza — tudo em um só lugar.</p>
+              <div class="hero-actions">
+                <button class="button button-primary" data-go="painel">Acessar meu painel <span aria-hidden="true">→</span></button>
+                <button class="button button-quiet" id="hero-demo">Explorar demonstração <span aria-hidden="true">↗</span></button>
+              </div>
+              <div class="hero-note"><span class="check-mark">✓</span> Gratuito, simples e seus dados ficam com você</div>
+            </div>
+            <div class="hero-visual" aria-label="Prévia ilustrativa do painel financeiro">
+              <div class="visual-glow"></div>
+              <div class="visual-card">
+                <div class="visual-card-top"><span>Visão geral</span><span class="visual-period">Este mês⌄</span></div>
+                <div class="visual-balance-label">Saldo total</div>
+                <div class="visual-balance">R$ 4.280<span>,50</span><span class="balance-trend">↗ 12,8%</span></div>
+                <div class="visual-chart">
+                  <div class="chart-lines"><i></i><i></i><i></i></div>
+                  <svg viewBox="0 0 390 120" preserveAspectRatio="none" aria-hidden="true">
+                    <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#57d99a" stop-opacity=".2"/><stop offset="1" stop-color="#57d99a" stop-opacity="0"/></linearGradient></defs>
+                    <path d="M0 94 C30 82 43 90 68 75 S102 84 130 62 S171 69 197 51 S235 66 258 42 S296 58 322 27 S360 39 390 12 V120 H0Z" fill="url(#areaFill)"/>
+                    <path d="M0 94 C30 82 43 90 68 75 S102 84 130 62 S171 69 197 51 S235 66 258 42 S296 58 322 27 S360 39 390 12" fill="none" stroke="#57d99a" stroke-width="3"/>
+                  </svg>
+                  <div class="chart-months"><span>01</span><span>05</span><span>10</span><span>15</span><span>20</span><span>30</span></div>
+                </div>
+                <div class="visual-legend"><span><i class="legend-income"></i> Receitas <b>R$ 5.200</b></span><span><i class="legend-expense"></i> Despesas <b>R$ 920</b></span></div>
+              </div>
+              <div class="floating-badge"><span>↗</span><div><small>Economia este mês</small><strong>+ R$ 680,00</strong></div></div>
+              <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+            </div>
+          </div>
+          <div class="section-heading feature-heading">
+            <div><div class="eyebrow">TUDO NO SEU RITMO</div><h2>Clareza para cuidar melhor do seu dinheiro</h2></div>
+            <p>Ferramentas essenciais, sem complicação.</p>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card"><div class="feature-icon icon-green">↗</div><h3>Visão completa</h3><p>Acompanhe saldo, receitas e despesas em um painel fácil de entender.</p><span class="feature-index">01</span></article>
+            <article class="feature-card"><div class="feature-icon icon-blue">◷</div><h3>Movimentações organizadas</h3><p>Registre cada entrada e saída com categoria, data e descrição.</p><span class="feature-index">02</span></article>
+            <article class="feature-card"><div class="feature-icon icon-violet">▥</div><h3>Decisões com dados</h3><p>Use gráficos e relatórios para descobrir hábitos e acompanhar sua evolução.</p><span class="feature-index">03</span></article>
+          </div>
+          <footer class="page-footer"><span>FINANTRACK <span class="footer-dot">•</span> Um projeto para aprender fazendo.</span><span>Seus dados são armazenados localmente.</span></footer>
+        </section>
+
+        <section class="page-view" id="page-painel">
+          <div class="page-heading">
+            <div><div class="eyebrow">SEU RESUMO FINANCEIRO</div><h1>Painel <span>financeiro</span></h1><p>Acompanhe o panorama das suas finanças.</p></div>
+            <button class="button button-primary" data-action="new-transaction"><span class="plus">＋</span> Nova movimentação</button>
+          </div>
+          <div class="toolbar dashboard-toolbar">
+            <div class="period-control"><span class="control-label">Período</span><select id="dashboard-period" aria-label="Período do painel"><option value="month">Este mês</option><option value="30">Últimos 30 dias</option><option value="90">Últimos 90 dias</option><option value="all">Todo o período</option></select></div>
+            <button class="text-button" data-go="relatorios">Ver relatórios <span>→</span></button>
+          </div>
+          <div class="stats-grid">
+            <article class="stat-card balance-card"><div class="stat-top"><span>Saldo atual</span><span class="stat-icon">◈</span></div><strong class="stat-value" id="stat-balance">R$ 0,00</strong><div class="stat-foot"><span class="status-dot green-dot"></span> Receitas menos despesas</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Total de receitas</span><span class="stat-icon green-icon">↗</span></div><strong class="stat-value" id="stat-income">R$ 0,00</strong><div class="stat-foot">Entradas no período</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Total de despesas</span><span class="stat-icon red-icon">↘</span></div><strong class="stat-value" id="stat-expense">R$ 0,00</strong><div class="stat-foot">Saídas no período</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Economia no período</span><span class="stat-icon blue-icon">✧</span></div><strong class="stat-value" id="stat-savings">R$ 0,00</strong><div class="stat-foot">Receitas menos despesas</div></article>
+          </div>
+          <div class="charts-grid">
+            <article class="panel chart-panel"><div class="panel-heading"><div><h2>Receitas e despesas</h2><p>Comparativo ao longo do período</p></div><span class="panel-menu">•••</span></div><div class="chart-wrap"><canvas id="income-expense-chart" aria-label="Gráfico de receitas e despesas"></canvas><div class="empty-chart hidden" id="trend-empty">Adicione movimentações para visualizar seu gráfico.</div></div></article>
+            <article class="panel chart-panel category-panel"><div class="panel-heading"><div><h2>Despesas por categoria</h2><p>Como seus gastos se distribuem</p></div><span class="panel-menu">•••</span></div><div class="category-chart-wrap"><canvas id="category-chart" aria-label="Gráfico de despesas por categoria"></canvas><div class="empty-chart hidden" id="category-empty">Sem despesas neste período.</div></div><div class="category-legend" id="category-legend"></div></article>
+          </div>
+          <section class="panel recent-panel"><div class="panel-heading"><div><h2>Últimas movimentações</h2><p>Suas atividades mais recentes</p></div><button class="text-button" data-go="movimentacoes">Ver todas <span>→</span></button></div><div class="table-scroll"><table><thead><tr><th>DESCRIÇÃO</th><th>CATEGORIA</th><th>DATA</th><th>VALOR</th></tr></thead><tbody id="recent-transactions"></tbody></table><div class="empty-state hidden" id="recent-empty"><span class="empty-symbol">↕</span><strong>Nenhuma movimentação por aqui</strong><p>Comece adicionando suas receitas e despesas.</p><button class="button button-outline" data-action="new-transaction">Adicionar movimentação</button></div></div></section>
+          <footer class="page-footer"><span>FINANTRACK <span class="footer-dot">•</span> Seus dados são armazenados localmente.</span><button class="text-button danger-text" data-action="clear-data">Limpar dados</button></footer>
+        </section>
+
+        <section class="page-view" id="page-movimentacoes">
+          <div class="page-heading">
+            <div><div class="eyebrow">ENTRADAS E SAÍDAS</div><h1>Suas <span>movimentações</span></h1><p>Organize e acompanhe cada detalhe do seu dinheiro.</p></div>
+            <button class="button button-primary" data-action="new-transaction"><span class="plus">＋</span> Nova movimentação</button>
+          </div>
+          <section class="panel transactions-panel">
+            <div class="transaction-toolbar">
+              <label class="search-field"><span>⌕</span><input id="transaction-search" type="search" placeholder="Buscar movimentação..." aria-label="Buscar movimentação"></label>
+              <div class="filter-group"><label><span class="sr-only">Tipo de movimentação</span><select id="type-filter"><option value="all">Todos os tipos</option><option value="income">Receitas</option><option value="expense">Despesas</option></select></label>
+                <label><span class="sr-only">Período</span><select id="transaction-period"><option value="all">Todo o período</option><option value="month">Este mês</option><option value="30">Últimos 30 dias</option><option value="90">Últimos 90 dias</option></select></label>
+              </div>
+            </div>
+            <div class="table-scroll"><table><thead><tr><th>DESCRIÇÃO</th><th>CATEGORIA</th><th>DATA</th><th>TIPO</th><th>VALOR</th><th><span class="sr-only">Ações</span></th></tr></thead><tbody id="transactions-list"></tbody></table><div class="empty-state hidden" id="transactions-empty"><span class="empty-symbol">⌕</span><strong id="transactions-empty-title">Nenhuma movimentação encontrada</strong><p id="transactions-empty-copy">Experimente ajustar os filtros ou adicione um registro.</p><button class="button button-outline" data-action="new-transaction">Adicionar movimentação</button></div></div>
+            <div class="table-footer" id="transaction-count"></div>
+          </section>
+          <footer class="page-footer"><span>Organize suas finanças, uma movimentação de cada vez.</span><button class="text-button danger-text" data-action="clear-data">Limpar dados</button></footer>
+        </section>
+
+        <section class="page-view" id="page-relatorios">
+          <div class="page-heading">
+            <div><div class="eyebrow">ENTENDA SEUS HÁBITOS</div><h1>Relatórios <span>financeiros</span></h1><p>Uma visão clara de como suas finanças evoluem.</p></div>
+            <div class="period-control report-period"><span class="control-label">Período</span><select id="report-period" aria-label="Período dos relatórios"><option value="month">Este mês</option><option value="30">Últimos 30 dias</option><option value="90">Últimos 90 dias</option><option value="all">Todo o período</option></select></div>
+          </div>
+          <div class="stats-grid report-stats">
+            <article class="stat-card"><div class="stat-top"><span>Receitas no período</span><span class="stat-icon green-icon">↗</span></div><strong class="stat-value" id="report-income">R$ 0,00</strong><div class="stat-foot">Total de entradas</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Despesas no período</span><span class="stat-icon red-icon">↘</span></div><strong class="stat-value" id="report-expense">R$ 0,00</strong><div class="stat-foot">Total de saídas</div></article>
+            <article class="stat-card"><div class="stat-top"><span>Resultado do período</span><span class="stat-icon blue-icon">✧</span></div><strong class="stat-value" id="report-net">R$ 0,00</strong><div class="stat-foot">Receitas menos despesas</div></article>
+          </div>
+          <div class="charts-grid report-charts">
+            <article class="panel chart-panel"><div class="panel-heading"><div><h2>Receitas e despesas por mês</h2><p>Compare suas entradas e saídas mensais</p></div></div><div class="report-chart-wrap"><canvas id="monthly-chart" aria-label="Gráfico mensal de receitas e despesas"></canvas><div class="empty-chart hidden" id="monthly-empty">Adicione movimentações para gerar seu relatório.</div></div></article>
+            <article class="panel chart-panel category-panel report-category"><div class="panel-heading"><div><h2>Gastos por categoria</h2><p>Distribuição das despesas</p></div></div><div class="category-chart-wrap"><canvas id="report-category-chart" aria-label="Gráfico de gastos por categoria"></canvas><div class="empty-chart hidden" id="report-category-empty">Sem despesas para exibir.</div></div><div class="category-legend" id="report-category-legend"></div></article>
+          </div>
+          <article class="panel balance-panel"><div class="panel-heading"><div><h2>Evolução do saldo</h2><p>Saldo acumulado a partir das movimentações registradas</p></div></div><div class="report-chart-wrap balance-chart-wrap"><canvas id="balance-chart" aria-label="Gráfico de evolução do saldo"></canvas><div class="empty-chart hidden" id="balance-empty">Registre movimentações para acompanhar sua evolução.</div></div></article>
+          <footer class="page-footer"><span>Relatórios calculados com base nos seus registros.</span><button class="text-button danger-text" data-action="clear-data">Limpar dados</button></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="transaction-modal" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header"><div><div class="eyebrow">REGISTRO FINANCEIRO</div><h2 id="modal-title">Nova movimentação</h2></div><button class="icon-button" id="close-modal" aria-label="Fechar janela">×</button></div>
+      <form id="transaction-form">
+        <input type="hidden" id="transaction-id">
+        <fieldset class="type-toggle"><legend class="sr-only">Tipo de movimentação</legend><label class="type-option selected" data-type="expense"><input type="radio" name="type" value="expense" checked><span>↘</span> Despesa</label><label class="type-option" data-type="income"><input type="radio" name="type" value="income"><span>↗</span> Receita</label></fieldset>
+        <div class="form-row"><label class="form-field">Valor (R$)<span class="input-with-prefix"><span>R$</span><input id="amount" type="number" min="0.01" step="0.01" placeholder="0,00" required></span></label><label class="form-field">Data<input id="date" type="date" required></label></div>
+        <label class="form-field">Categoria<select id="category" required></select></label>
+        <label class="form-field">Descrição<input id="description" type="text" maxlength="80" placeholder="Ex.: Conta de internet" required></label>
+        <p class="form-error hidden" id="form-error" role="alert"></p>
+        <div class="modal-actions"><button type="button" class="button button-quiet" id="cancel-modal">Cancelar</button><button type="submit" class="button button-primary" id="save-transaction">Salvar movimentação <span>→</span></button></div>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
