@@ -1,12 +1,16 @@
 # FINANTRACK
 
+## About
+
 **Controle financeiro pessoal, simples e visual.** O FinanTrack é um projeto de portfólio feito para demonstrar fundamentos de desenvolvimento web, organização de dados e criação de interfaces responsivas.
+
+[pietrosouza71.github.io/Finantrack/](https://pietrosouza71.github.io/Finantrack/)
 
 > Tenha controle do seu dinheiro, tome decisões melhores.
 
 ## Demonstração
 
-Acesse o [site publicado no GitHub Pages](https://pietrosouza71.github.io/Finantrack/) ou abra `index.html` no navegador para navegar pela apresentação, painel, movimentações e relatórios. Na página inicial, use **Explorar demonstração** para carregar registros fictícios e visualizar os gráficos preenchidos.
+Na página inicial, use **Explorar demonstração** para carregar registros fictícios e visualizar os gráficos preenchidos. Também é possível abrir `index.html` diretamente no navegador.
 
 ## Captura de tela
 
@@ -66,21 +70,9 @@ Cada movimentação contém `id`, `type`, `amount`, `category`, `description` e 
 
 O saldo e a economia do período são calculados como **soma das receitas − soma das despesas**. Os filtros selecionam os registros antes dos totais e gráficos serem atualizados. Os gráficos são recriados a partir dos dados atuais quando a lista ou o período muda.
 
-## Publicar no GitHub
+## Publicação
 
-1. Crie um repositório público no GitHub com o nome `finantrack`.
-2. Na pasta do projeto, inicialize o Git e envie os arquivos:
-
-```bash
-git init
-git add index.html styles.css app.js README.md .gitignore
-git commit -m "feat: cria o FinanTrack"
-git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/finantrack.git
-git push -u origin main
-```
-
-3. Para publicar o site sem custo, acesse **Settings → Pages**, selecione a branch `main` e a pasta `/ (root)`, e salve. O GitHub Pages publicará o `index.html`.
+O site está publicado no GitHub Pages e o repositório é público. As atualizações do projeto são feitas pela branch main.
 
 ## Observações
 
