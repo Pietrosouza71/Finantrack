@@ -1,6 +1,6 @@
 # FINANTRACK
 
-## About
+## Sobre
 
 **Controle financeiro pessoal, simples e visual.** O FinanTrack é um projeto de portfólio feito para demonstrar fundamentos de desenvolvimento web, organização de dados e criação de interfaces responsivas.
 
